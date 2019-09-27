@@ -1,0 +1,38 @@
+﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+
+@using Lesson05.Models
+@model Country
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width"/>
+        <title>@ViewData["Title"]</title>
+    </head>
+    <body>
+        <form method="get" asp-controller="Exercise01" asp-action="Index">
+            <h2>Countries</h2>
+            <select id="country" name="country" asp-items="@ViewData["Countries"] as List<SelectListItem>"></select>
+            <input type="submit" value="Show country code" />
+        </form>
+
+        <div><strong>Country code</strong>: @ViewData["CountryCode"]</div>
+
+        <h2>Add country</h2>
+        <form method="post" asp-controller="Exercise01" asp-action="Index">
+            <label for="name">Country:</label>
+            <input asp-for="@Model.CountryName" id="name"/>
+
+            <label for="code">Country code:</label>
+            <input asp-for="@Model.CountryCode" id="code"/>
+
+            <input type="submit" value="Add" />
+
+
+        </form>
+    </body>
+</html>
