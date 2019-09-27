@@ -10,10 +10,10 @@
     </head>
     <body>
         <h1>Breakfast Order</h1>
-        <form action="post">
+        <form asp-controller="Exercise03" asp-action="Index">
             <p><label asp-for="Fullname">Your name:</label> <input asp-for="Fullname"/></p>
             <p><label asp-for="RoomNumber">Room number:</label> <input asp-for="RoomNumber"/></p>
-            <p>What would you like to eat for breakfast?</p>
+            <p><b>What would you like to eat for breakfast?</b><br/><br/>
             @for (int i = 0; i < Model.BreakfastFoods.Count(); i++)
             {
                 <input asp-for="@Model.BreakfastFoods[i].Selected" type="checkbox"/>
@@ -21,9 +21,8 @@
                 <input asp-for="@Model.BreakfastFoods[i].BreakfastFoodId" type="hidden"/>
                 <input asp-for="@Model.BreakfastFoods[i].Name" type="hidden"/>
                 <input asp-for="@Model.BreakfastFoods[i].Price" type="hidden"/>
-
-            }
-
+                <br />
+            }</p>
             <p><label asp-for="Delivery">When:</label> <input type="datetime" asp-for="Delivery"/></p>
             <p><input type="submit" value="Order"/></p>
         </form>
